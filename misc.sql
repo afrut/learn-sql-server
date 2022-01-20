@@ -24,3 +24,11 @@ from sys.extended_properties;
 -- See all columns.
 select *
 from sys.columns;
+
+-- See all foreign keys.
+select *
+from sys.foreign_keys;
+
+-- See which columns in the parent/referenced object constitute the foreign key.
+select *
+from sys.foreign_key_columns;
