@@ -20,12 +20,15 @@ order by obj.name asc
        , cols.name asc;
 
 -- See all extended properties of all user tables.
-select tbl.name TableName
+select sch.name SchemaName
+     , tbl.name TableName
      , ep.name PropertyName
      , ep.value PropertyValue
 from sys.tables tbl
 join sys.extended_properties ep
 on tbl.object_id = ep.major_id
+join sys.schemas sch
+on tbl.schema_id = sch.schema_id
 where tbl.type_desc = 'USER_TABLE'
   and ep.minor_id = 0
  order by tbl.name;
