@@ -4,19 +4,23 @@ use AdventureWorks;
 -- Inspect extended properties.
 ----------------------------------------
 -- See the extended properties of the columns of the Person table.
-select obj.name TableName
+select sch.name SchemaName
+     , obj.name TableName
      , cols.name ColumnName
      , ep.name PropertyName
      , ep.value PropertyValue
 from sys.extended_properties ep
 join sys.objects obj
 on ep.major_id = obj.object_id
+join sys.schemas sch
+on obj.schema_id = sch.schema_id
 join sys.columns cols
 on obj.object_id = cols.object_id
 and ep.minor_id = cols.column_id
 where ep.class_desc = 'OBJECT_OR_COLUMN'
   and obj.name = 'Person'
-order by obj.name asc
+order by sch.name asc
+       , obj.name asc
        , cols.name asc;
 
 -- See all extended properties of all user tables.
