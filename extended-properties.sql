@@ -31,7 +31,8 @@ join sys.schemas sch
 on tbl.schema_id = sch.schema_id
 where tbl.type_desc = 'USER_TABLE'
   and ep.minor_id = 0
- order by tbl.name;
+ order by sch.name asc
+	    , tbl.name;
 
 
 
