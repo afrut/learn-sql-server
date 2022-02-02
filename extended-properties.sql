@@ -54,6 +54,13 @@ exec sp_addextendedproperty
     ,@level2type = N'Column', @level2name = 'fullname'
 go
 
+exec sp_dropextendedproperty
+	@name = N'ColumnDescription' 
+    ,@level0type = N'Schema', @level0name = 'hr' 
+    ,@level1type = N'Table',  @level1name = 'candidates'
+    ,@level2type = N'Column', @level2name = 'fullname'
+go
+
 -- Add an extended property to a table.
 exec sp_addextendedproperty  
      @name = N'TableDescription' 
