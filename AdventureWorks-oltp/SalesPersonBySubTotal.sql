@@ -1,3 +1,4 @@
+-- These queries answer: Who sells the most?
 use AdventureWorks;
 
 -- Check that the SalesOrderHeader.SubTotal is properly computed from
