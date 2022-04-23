@@ -32,3 +32,7 @@ from sys.foreign_keys;
 -- See which columns in the parent/referenced object constitute the foreign key.
 select *
 from sys.foreign_key_columns;
+
+-- See types of columns.
+select *
+from sys.types;
