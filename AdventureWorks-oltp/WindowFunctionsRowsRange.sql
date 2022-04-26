@@ -64,6 +64,6 @@ select sp.*
      , sum(Profit) over (partition by SalesPersonName order by SalesOrderDetailID range between unbounded preceding and current row) ProfitTotal8
 
      -- Sum over all rows after and all rows with the same SalesOrderDetailID as current row
-     , sum(Profit) over (partition by SalesPersonName order by SalesOrderDetailID) range between unbounded following and current row) ProfitTotal9
+     , sum(Profit) over (partition by SalesPersonName order by SalesOrderDetailID range between current row and unbounded following) ProfitTotal9
 from #SalesProfit sp
 order by sp.SalesOrderDetailID
